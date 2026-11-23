@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PlazaViva · Galería virtual de productos locales</title>
+  <meta name="description" content="Galería virtual donde compradores obtienen productos restantes de vendedores de plazas y establecimientos locales." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Fondo: líneas topográficas + manchas de color (estilo referencia) -->
+  <div class="bg" aria-hidden="true">
+    <div class="blob blob--purple"></div>
+    <div class="blob blob--orange"></div>
+    <div class="blob blob--gray"></div>
+    <svg class="contours" viewBox="0 0 800 800" preserveAspectRatio="xMidYMid slice">
+      <g fill="none" stroke="currentColor" stroke-width="1.4">
+        <path d="M420 60c160 20 300 140 310 300s-120 330-300 340S90 600 80 420 260 40 420 60z"/>
+        <path d="M425 110c130 18 250 120 255 255s-100 280-255 288S140 570 132 420 290 92 425 110z"/>
+        <path d="M430 160c100 14 195 98 200 205s-80 225-200 232S190 540 184 420 320 146 430 160z"/>
+        <path d="M435 210c72 10 140 76 144 155s-60 170-144 175S240 510 236 420 350 200 435 210z"/>
+        <path d="M440 262c44 6 86 52 88 103s-38 116-88 119-150-38-152-90 108-138 152-132z"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Barra superior -->
+  <header class="topbar glass">
+    <a href="#" class="brand" data-action="home">
+      <span class="brand__mark">
+        <svg viewBox="0 0 32 32" width="28" height="28"><path d="M5 13 16 5l11 8v2H5z" fill="#5B1F63"/><path d="M7 15h18v12H7z" fill="#5B1F63" opacity=".85"/><circle cx="16" cy="21" r="3.2" fill="#E07B39"/></svg>
+      </span>
+      <span class="brand__name">PlazaViva</span>
+    </a>
+    <nav class="topbar__nav" id="topnav"></nav>
+  </header>
+
+  <main id="app"></main>
+
+  <!-- Contenedor de modales -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal__backdrop" data-action="close-modal"></div>
+    <div class="modal__panel glass glass--strong" role="dialog" aria-modal="true" id="modalPanel"></div>
+  </div>
+
+  <div class="toast glass" id="toast" role="status"></div>
+
+  <!-- Carrito de compras (solo compradores) -->
+  <button class="cart-fab glass glass--strong" id="cartFab" data-action="cart-open" aria-label="Abrir carrito" hidden>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.6 12.2a1.5 1.5 0 0 0 1.5 1.2h8.6a1.5 1.5 0 0 0 1.5-1.1L21 8H6"/></svg>
+    <span class="cart-fab__count" id="cartCount">0</span>
+  </button>
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer__backdrop" data-action="cart-close"></div>
+    <aside class="drawer__panel glass glass--strong" role="dialog" aria-modal="true" aria-label="Carrito de compras" id="drawerPanel"></aside>
+  </div>
+
+  <script src="app.js" charset="utf-8"></script>
+</body>
+</html>
